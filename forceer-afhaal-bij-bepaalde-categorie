@@ -1,18 +1,31 @@
+<?php 
+
+// filter 'woocommerce_package_rates' bepaald de shipping rates
+
+
 add_filter( 'woocommerce_package_rates', 'hide_shipping_methods_for_category', 100, 2 );
 function hide_shipping_methods_for_category( $rates, $package ){
 
-    // Define/replace here your correct category slug (!)
+    // specifieer hier de bepaalde categorie
     $product_category = 'koopjes';
     $prod_cat = false;
+    
+    // indien je meerdere product categorien wil tracen, zet dan een array op zoals:
+    // $product_category = array( 'clothing');
 
-    // Going through each item in cart to see if there is anyone of your category
+    // we doorlopen hier alle producten in het winkelmandje en 
+    // bekijken via has_term of een product van die bepaalde categorie aanwezig is
+    // indien zo dfan zetten we de variable $prod_cat op true
     foreach ( WC()->cart->get_cart() as $cart_item ) {
         $product_id = $cart_item['product_id'];
         if ( has_term( $product_category, 'product_cat', $product_id ) ){
             $prod_cat = true;
         }
     }
-		$rates_arr = array();
+    
+    // indien $prod_cat op true is forceer dan enkel local_pickup als shipping optie
+    
+    $rates_arr = array();
     if ( $prod_cat ) {
         foreach($rates as $rate_id => $rate) {
             if ('local_pickup' === $rate->method_id) {
@@ -22,3 +35,6 @@ function hide_shipping_methods_for_category( $rates, $package ){
     }
     return !empty( $rates_arr ) ? $rates_arr : $rates;
 }
+
+
+?>
