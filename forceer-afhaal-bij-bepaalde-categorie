@@ -1,0 +1,24 @@
+add_filter( 'woocommerce_package_rates', 'hide_shipping_methods_for_category', 100, 2 );
+function hide_shipping_methods_for_category( $rates, $package ){
+
+    // Define/replace here your correct category slug (!)
+    $product_category = 'koopjes';
+    $prod_cat = false;
+
+    // Going through each item in cart to see if there is anyone of your category
+    foreach ( WC()->cart->get_cart() as $cart_item ) {
+        $product_id = $cart_item['product_id'];
+        if ( has_term( $product_category, 'product_cat', $product_id ) ){
+            $prod_cat = true;
+        }
+    }
+		$rates_arr = array();
+    if ( $prod_cat ) {
+        foreach($rates as $rate_id => $rate) {
+            if ('local_pickup' === $rate->method_id) {
+                $rates_arr[ $rate_id ] = $rate;
+            }
+        }
+    }
+    return !empty( $rates_arr ) ? $rates_arr : $rates;
+}
