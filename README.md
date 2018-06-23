@@ -1,3 +1,3 @@
 # Woocommerce-snippets
 
-[Forceer afhaal indien bepaalde categorie is gekozen](../blob/master/forceer-afhaal-bij-bepaalde-categorie)
+[Forceer afhaal indien bepaalde categorie is gekozen](/forceer-afhaal-bij-bepaalde-categorie)
