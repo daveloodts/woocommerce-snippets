@@ -1,6 +1,6 @@
 # Woocommerce-snippets
 
-[Een link naar github opmaak](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Een externe link naar github opmaak](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 
 ## Verzendingen
