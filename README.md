@@ -1,2 +1,3 @@
 # woocommerce-snippets
-WooCommerce Snippets
+
+
