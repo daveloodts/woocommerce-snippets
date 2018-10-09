@@ -6,3 +6,7 @@
 ## Verzendingen
 
 [Forceer afhaal indien bepaalde categorie is gekozen](/forceer-afhaal-bij-bepaalde-categorie)
+
+
+## Kortingen
+[Verwijder Dynamic Korting als product individuele korting heeft–(/dynamic-discount-disable-when-product-sale)
