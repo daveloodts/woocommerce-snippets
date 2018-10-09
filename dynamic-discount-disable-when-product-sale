@@ -1,0 +1,16 @@
+Snippet for dynamic discount
+The following snippet will exclude items which you have manually set a sale price from being eligible for Dynamic Pricing adjustments:
+
+
+add_filter( 'woocommerce_dynamic_pricing_process_product_discounts', 'is_product_eligible', 10, 4 );
+function is_product_eligible( $eligible, $product, $discounter_name, $discounter_object ) {
+   remove_filter( 'woocommerce_dynamic_pricing_process_product_discounts', 'is_product_eligible', 10, 4 );
+
+   if ( $product->is_on_sale() ) {
+      $eligible = false;
+   }
+
+   add_filter( 'woocommerce_dynamic_pricing_process_product_discounts', 'is_product_eligible', 10, 4 );
+
+   return $eligible;
+}
