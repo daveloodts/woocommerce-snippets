@@ -9,4 +9,4 @@
 
 
 ## Kortingen
-[Verwijder Dynamic Korting als product individuele korting heeft–(/dynamic-discount-disable-when-product-sale)
+[Verwijder Dynamic Korting als product individuele korting heeft](/dynamic-discount-disable-when-product-sale)
